@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+<title>
+    JsChart demos
+</title>
+<script src="../js/jscharts.js"></script>
+<script src="../js/jscharts.plug.mb.js"></script>
+<script src="../js/jscharts_ZH.js"></script>
+
+
+<style>
+    div {
+        margin:10px 10px 10px;
+        float:left;
+        display:block;
+        width:100%;
+        background:#f0f0f0;
+    }
+</style>
+
+
+<body>
+<div id="demo1">
+
+</div>
+
+<div id="demo2">
+Loading now
+</div>
+
+<div id="demo3">
+
+</div>
+
+<div id="demo4">
+
+</div>
+
+<div id="demo5">
+
+</div>
+</body>
+
+
+<script>
+    var Data = new Array([1,2], [3,5],[5,7],[7,9]);
+    var jsChart = new JSChart('demo1', 'line');
+    jsChart.setDataArray(Data);
+    jsChart.draw();
+
+
+    var myData = new Array(['Mar04-Mar05', 21], ['Mar05-Mar06', 28], ['Mar06-Mar07', 12], ['Mar07-Mar08', 17]);
+    var colors = ['#AF0202', '#EC7A00', '#FCD200', '#81C714'];
+    var myChart = new JSChart('demo2', 'bar');
+    myChart.setDataArray(myData);
+    myChart.colorizeBars(colors);
+    myChart.setTitle('Year-to-year growth in home broadband penetration in U.S.');
+    myChart.setTitleColor('#8E8E8E');
+    myChart.setAxisNameX('');
+    myChart.setAxisNameY('%');
+    myChart.setAxisColor('#C4C4C4');
+    myChart.setAxisNameFontSize(16);
+    myChart.setAxisNameColor('#999');
+    myChart.setAxisValuesColor('#7E7E7E');
+    myChart.setBarValuesColor('#7E7E7E');
+    myChart.setAxisPaddingTop(60);
+    myChart.setAxisPaddingRight(140);
+    myChart.setAxisPaddingLeft(150);
+    myChart.setAxisPaddingBottom(40);
+    myChart.setTextPaddingLeft(105);
+    myChart.setTitleFontSize(11);
+    myChart.setBarBorderWidth(1);
+    myChart.setBarBorderColor('#C4C4C4');
+    myChart.setBarSpacingRatio(50);
+    myChart.setGrid(false);
+    myChart.setSize(616, 321);
+    myChart.setBackgroundImage('chart_bg.jpg');
+    myChart.draw();
+
+
+    var myData = new Array(['一楼', 437], ['二楼', 322], ['三楼', 233], ['四楼', 110], ['五楼', 34]);
+    var colors = ['#2D6B96', '#327AAD', '#3E90C9', '#55A7E3', '#60B6F0'];
+    var myChart1 = new JSChart('demo3', 'bar');
+    myChart1.setDataArray(myData);
+    myChart1.colorizeBars(colors);
+    myChart1.setTitle('楼层流量图');
+    myChart1.setTitleColor('#8E8E8E');
+    myChart1.setAxisNameX('');
+    myChart1.setAxisNameY('');
+    myChart1.setAxisColor('#C4C4C4');
+    myChart1.setAxisNameFontSize(16);
+    myChart1.setAxisNameColor('#999');
+    myChart1.setAxisValuesColor('#777');
+    myChart1.setAxisColor('#B5B5B5');
+    myChart1.setAxisWidth(1);
+    myChart1.setBarValuesColor('#2F6D99');
+    myChart1.setBarOpacity(0.5);
+    myChart1.setAxisPaddingTop(60);
+    myChart1.setAxisPaddingBottom(40);
+    myChart1.setAxisPaddingLeft(45);
+    myChart1.setTitleFontSize(11);
+    myChart1.setBarBorderWidth(0);
+    myChart1.setBarSpacingRatio(50);
+    myChart1.setBarOpacity(0.9);
+    myChart1.setFlagRadius(6);
+    myChart1.setTooltip(['江南大学', '一教']);
+    myChart1.setTooltipPosition('nw');
+    myChart1.setTooltipOffset(3);
+    myChart1.setSize(616, 321);
+    myChart1.setBackgroundImage('../images/charts/chart_bg.jpg');
+    myChart1.draw();
+</script>
+
+</html>

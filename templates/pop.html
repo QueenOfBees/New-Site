@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Pop Easy</title>
+    <style type="text/css">
+        .clear {
+            zoom: 1;
+            display: block;
+        }
+    </style>
+    <style>
+        .demo {
+            width: 700px;
+            margin: 40px auto 0 auto;
+            min-height: 450px;
+        }
+
+        @media screen and (max-width: 360px) {
+            .demo {
+                width: 340px
+            }
+        }
+
+        .front {
+            width: 300px;
+            margin: 5px 32px 45px 32px;
+            background-color: #f0f0f0;
+            color: #666;
+            text-align: center;
+            padding: 3px;
+            border-radius: 5px;
+        }
+
+        .booking-details {
+            float: right;
+            position: relative;
+            width: 200px;
+            height: 450px;
+        }
+
+        .booking-details h3 {
+            margin: 5px 5px 0 0;
+            font-size: 16px;
+        }
+
+        .booking-details p {
+            line-height: 26px;
+            font-size: 16px;
+            color: #999
+        }
+
+        .booking-details p span {
+            color: #666
+        }
+
+        div.seatCharts-cell {
+            color: #182C4E;
+            height: 25px;
+            width: 25px;
+            line-height: 25px;
+            margin: 3px;
+            float: left;
+            text-align: center;
+            outline: none;
+            font-size: 13px;
+        }
+
+        div.seatCharts-seat {
+            color: #fff;
+            cursor: pointer;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+        }
+
+        div.seatCharts-row {
+            height: 35px;
+        }
+
+        div.seatCharts-seat.available {
+            background-color: #B9DEA0;
+        }
+
+        div.seatCharts-seat.focused {
+            background-color: #76B474;
+            border: none;
+        }
+
+        div.seatCharts-seat.selected {
+            background-color: #E6CAC4;
+        }
+
+        div.seatCharts-seat.unavailable {
+            background-color: #472B34;
+            cursor: not-allowed;
+        }
+
+        div.seatCharts-container {
+            border-right: 1px dotted #adadad;
+            width: 400px;
+            padding: 20px;
+            float: left;
+        }
+
+        div.seatCharts-legend {
+            padding-left: 0px;
+            position: absolute;
+            bottom: 16px;
+        }
+
+        ul.seatCharts-legendList {
+            padding-left: 0px;
+        }
+
+        .seatCharts-legendItem {
+            float: left;
+            width: 90px;
+            margin-top: 10px;
+            line-height: 2;
+        }
+
+        span.seatCharts-legendDescription {
+            margin-left: 5px;
+            line-height: 30px;
+        }
+
+        .checkout-button {
+            display: block;
+            width: 80px;
+            height: 24px;
+            line-height: 20px;
+            margin: 10px auto;
+            border: 1px solid #999;
+            font-size: 14px;
+            cursor: pointer
+        }
+
+        #selected-seats {
+            max-height: 150px;
+            overflow-y: auto;
+            overflow-x: none;
+            width: 200px;
+        }
+
+        #selected-seats li {
+            float: left;
+            width: 72px;
+            height: 26px;
+            line-height: 26px;
+            border: 1px solid #d3d3d3;
+            background: #f7f7f7;
+            margin: 6px;
+            font-size: 14px;
+            font-weight: bold;
+            text-align: center
+        }
+    </style>
+    <style>
+        .overlay {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            display: none;
+        }
+
+        .modal {
+            display: none;
+            background: #eee;
+            padding: 0 20px 20px;
+            overflow: auto;
+            z-index: 1001;
+            position: absolute;
+            width: 80%;
+            min-height: 300px;
+        }
+
+        .modal p {
+            font-size: 14px;
+            text-align: left;
+            margin: 10px 0 0;
+        }
+
+        .modal p:hover {
+            cursor: pointer;
+        }
+
+
+    </style>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="../js/jquery.modal.min.js"></script>
+
+
+
+</head>
+<body>
+
+<section class="centerUp">
+    <h1>Pop Easy Demo</h1>
+    <a class="modalLink" href="#modal1">Click Me</a>
+    <hr>
+    <a class="modalLink" href="#modal2">Click Me</a>
+    <p>Thanks for downloading Pop Easy</p>
+</section>
+
+<div class="overlay"></div>
+
+<div id="modal1" class="modal">
+    <p class="closeBtn">Close</p>
+    <h2>Your Content Here</h2>
+</div>
+
+<h2 class="top_title"><a href="http://www.helloweba.net/javascript/278.html">教室详细信息图</a></h2>
+<div class="demo modal" id="modal2">
+    <div id="seat-map">
+        <div class="front">黑板</div>
+    </div>
+    <br>
+    <div class="booking-details">
+        <p>教室：<span id="classroom">1A110</span></p>
+        <p>时间：<span id="time">4:30</span></p>
+        <p>座位总数：<span>100</span></p>
+        <p>占座人数：<span id="occupation"></span></p>
+        <p>占座率:<span id="rate">20%</span></p>
+        <div id="legend"></div>
+    </div>
+    <div style="clear:both"></div>
+</div>
+
+<br/>
+</body>
+<script src="../js/jquery.seat-charts.min.js"></script>
+<script>
+    $(document).ready(function () {
+
+        $('.modalLink').modal({
+            trigger: '.modalLink',          // id or class of link or button to trigger modal
+            olay: 'div.overlay',             // id or class of overlay
+            modals: 'div.modal',             // id or class of modal
+            animationEffect: 'slideDown',   // overlay effect | slideDown or fadeIn | default=fadeIn
+            animationSpeed: 400,            // speed of overlay in milliseconds | default=400
+            moveModalSpeed: 'slow',         // speed of modal movement when window is resized | slow or fast | default=false
+            background: 'a2d3cd',           // hexidecimal color code - DONT USE #
+            opacity: 0.7,                   // opacity of modal |  0 - 1 | default = 0.8
+            openOnLoad: false,              // open modal on page load | true or false | default=false
+            docClose: true,                 // click document to close | true or false | default=true
+            closeByEscape: true,            // close modal by escape key | true or false | default=true
+            moveOnScroll: true,             // move modal when window is scrolled | true or false | default=false
+            resizeWindow: true,             // move modal when window is resized | true or false | default=false
+            video: 'http://player.vimeo.com/video/2355334?color=eb5a3d',    // enter the url of the video
+            videoClass: 'video',             // class of video element(s)
+            close: '.closeBtn'               // id or class of close button
+        });
+    });
+
+
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+
+        var sc = $('#seat-map').seatCharts({
+            map: [  //座位图
+                'aaaaaaaaaa',
+                'aaaaaaaaaa',
+                '__________',
+                'aaaaaaaa__',
+                'aaaaaaaaaa',
+                'aaaaaaaaaa',
+                'aaaaaaaaaa',
+                'aaaaaaaaaa',
+                'aaaaaaaaaa',
+                'aa__aa__aa'
+            ],
+            seats: {
+                a:{
+                    value: 100,
+                    category: '座位',
+                    class : '',
+                },
+            },
+            naming : {
+                top : false,
+                left:false,
+            },
+            legend : { //定义图例
+                node : $('#legend'),
+                items : [
+                    [ 'a', 'available',   '可选座' ],
+                    [ 'a', 'unavailable', '不可用'],
+                    ['a','selected', '已占用' ]
+                ]
+            },
+            click: function () {
+                if (this.status() == 'available') {
+                    return 'selected';
+                }
+                else if (this.status() == 'selected') {
+                    return 'selected';
+                }
+                else if (this.status() == 'unavailable') {
+                    return 'unavailable';
+                }
+                else {
+                    return this.style();
+                }
+
+            }//点击事件
+
+        });
+        //已售出的座位
+
+        sc.get(['1_2', '4_4','4_5','6_6','6_7','8_5','8_6','8_7','8_8', '10_1', '10_2']).status('selected');
+
+    });
+</script>
+
+
+</html>

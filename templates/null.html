@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="../js/bootstrap.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/shortcode/shortcode.css">
+</head>
+<body >
+
+
+
+    <form role="form">
+        <div class="form-group">
+            <label for="name">名称</label>
+            <input type="text" class="form-control" id='name' placeholder="请输入名称">
+        </div>
+        <div class="form-group">
+            <label for="fileinput">文件输入</label>
+            <input type="file" class="form-control" id="fileinput">
+            <P>块级帮助文本的实列</P>
+        </div>
+        <div class="checkbox">
+            <label><input type="checkbox" id="checkbox">请打勾</label>
+        </div>
+        <button type="submit" class="btn btn-default" value="提交">提交</button>
+    </form>
+
+
+    <br/>
+    <br/>
+    <br/>
+
+    <h3 class="text-success">A stripped table case
+        <small>class="table-ripped"</small>
+    </h3>
+    <table class="table table-striped table-bordered ">
+        <thead>
+        <tr>
+            <th>产品</th>
+            <th>付款日期</th>
+            <th>状态</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="info">
+            <td>产品1</td>
+            <td>23/11/2013</td>
+            <td>代发货</td>
+        </tr>
+        <tr class="success">
+            <td>产品2</td>
+            <td>10/11/2013</td>
+            <td>发货中</td>
+        </tr>
+        <tr class="warning">
+            <td>产品3</td>
+            <td>20/10/2013</td>
+            <td>待确认</td>
+        </tr>
+        <tr class="danger">
+            <td>产品4</td>
+            <td>20/10/2013</td>
+            <td>状态</td>
+        </tr>
+        </tbody>
+    </table>
+    <br>
+    <br>
+    <br>
+    <h3 class="text-success">Horizontal Form
+        <small>class="form-horizontal"</small>
+    </h3>
+
+    <form class="form-horizontal" role="form">
+        <div class="form-group">
+            <label for="form2_1" class="col-sm-2 control-label">UsesName</label>
+            <div class="col-sm-10">
+                <input class='form-control' type="text" id="form2_1">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="form2_4" class="col-sm-2 control-label">Email</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="form2_4">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="form2_2" class="col-sm-2 control-label">Password</label>
+            <div class=" col-sm-10">
+                <input class="form-control" type="password" id="form2_2">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="checkbox col-sm-offset-2 col-sm-10">
+                <label><input type="checkbox" id="form2_3">请记住我</label>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-default col-sm-offset-2" value="提交">提交</button>
+    </form>
+
+    <br>
+    <br>
+    <br>
+    <h3 class="text-success">Another one<small>form.form-horizontal</small></h3>
+    <label class="col-sm-offset-2"><input type="checkbox">rember me</label>
+
+    <form class="form-horizontal" role="form">
+        <div class="form-group has-warning">
+            <label for="next1" class="control-label col-sm-2">A:</label>
+            <div class="col-sm-10">
+                <input type="email" id="next1" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="next2" class="control-label col-sm-2">B:
+            </label>
+            <div class="col-sm-10">
+                <input type="tel" class="form-control" id="next2">
+            </div>
+        </div>
+        <div class="form-group has-feedback">
+            <label for="next3" class="control-label col-sm-2"><code lang="html">&lt;div&gt;</code></label>
+            <div class="col-sm-10">
+                <input type="email" id="next3" class="form-control">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-offset-3 col-lg-6">
+                <select class="form-control">
+                    <option href="3">a</option>
+                    <option href="3">a</option>
+                    <option href="3">a</option>
+                    <option href="3">a</option>
+                </select>
+            </div>
+        </div>
+    </form>
+
+
+    <form class="form-horizontal" role="form">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">聚焦</label>
+            <div class="col-sm-10">
+                <input class="form-control" id="focusedInput" type="text" value="该输入框获得焦点...">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="disabledInput" class="col-sm-2 control-label">禁用</label>
+            <div class="col-sm-10">
+                <input class="form-control" id="disabledInput" type="text" placeholder="该输入框禁止输入..." disabled>
+            </div>
+        </div>
+        <fieldset disabled>
+            <div class="form-group">
+                <label for="disabledTextInput" class="col-sm-2 control-label">禁用输入（Fieldset disabled）</label>
+                <div class="col-sm-10">
+                    <input type="text" id="disabledTextInput" class="form-control" placeholder="禁止输入">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="disabledSelect" class="col-sm-2 control-label">禁用选择菜单（Fieldset disabled）</label>
+                <div class="col-sm-10">
+                    <select id="disabledSelect" class="form-control">
+                        <option>禁止选择</option>
+                    </select>
+                </div>
+            </div>
+        </fieldset>
+        <div class="form-group has-success">
+            <label class="col-sm-2 control-label" for="inputSuccess">输入成功</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputSuccess">
+            </div>
+        </div>
+        <div class="form-group has-warning">
+            <label class="col-sm-2 control-label" for="inputWarning">输入警告</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputWarning">
+            </div>
+        </div>
+        <div class="form-group has-error">
+            <label class="col-sm-2 control-label" for="inputError">输入错误</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputError">
+            </div>
+        </div>
+    </form>
+
+    <span><a class="btn  btn-default" href="#">a Btn</a>
+        <button class="btn btn-default" href="#">btn Btn</button>
+    </span>
+<!-- GO TO TOP -->
+<div id="toTop" style="display: block">
+    <i id="btn-to-top"><span class="glyphicon glyphicon-chevron-up"></span></i>
+</div>
+
+<script src="../js/utility.js"></script>
+
+</body>
+
+</html>
