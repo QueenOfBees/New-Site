@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+
+{% block title %}
+    信息展示
+{% endblock title %}
+
+{% block css %}
+    <style>
+        div > a {
+            margin: 20px 20px 20px;
+        }
+    </style>
+{% endblock css %}
+
+{% load static %}
+
+{% block content %}
+
+    <div class="py-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item"><a href="#tab-one" class="nav-link active show" data-toggle="tab"
+                        >一楼</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#tab-two" data-toggle="tab">二楼</a>
+                        </li>
+                        <li class="nav-item"><a href="#tab-three" class="nav-link" data-toggle="tab">三楼</a>
+                        </li>
+                        <li class="nav-item"><a href="#tab-four" class="nav-link" data-toggle="tab">四楼</a>
+                        </li>
+                        <li class="nav-item"><a href="#tab-five" class="nav-link" data-toggle="tab">五楼</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content mt-2" id="tab-content">
+                        <div class="tab-pane fade active show" id="tab-one" role="tabpanel">
+                            <div class="my-2">
+                                <div class="container container-fluid">
+
+                                    <!--added by js-->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade " id="tab-two" role="tabpanel">
+                            <div class="my-2">
+                                <div class="container container-fluid">
+
+                                    <!--added by js-->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade " id="tab-three" role="tabpanel">
+                            <div class="my-2">
+                                <div class="container container-fluid">
+
+                                    <!--added by js-->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade " id="tab-four" role="tabpanel">
+                            <div class="my-2">
+                                <div class="container container-fluid">
+
+                                    <!--added by js-->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="tab-five" role="tabpanel">
+                            <div class="my-2">
+                                <div class="container container-fluid">
+
+                                    <!--added by js-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay"></div>
+    <div class="demo modal" id="modal2">
+        <div id="seat-map">
+            <div class="front">黑板</div>
+        </div>
+        <br>
+        <div class="booking-details">
+            <p>教室：<span>1A110</span></p>
+            <p>时间：<span>4:30</span></p>
+            <p>座位总数：<span>100</span></p>
+            <p>占座人数：<span></span></p>
+            <p>占座率:<span>20%</span></p>
+            <div id="legend" class="border-info">图例</div>
+        </div>
+        <div style="clear:both"></div>
+    </div>
+
+
+{% endblock content %}
+
+{% block js %}
+    <script src="{% static "js/utility.js" %}"></script>
+    <script src="{% static 'galaxy/js/jquery.modal.min.js' %}"></script>
+    <script src="{% static 'galaxy/js/jquery.seat-charts.min.js' %}"></script>
+    <script>
+    </script>
+{% endblock js %}
