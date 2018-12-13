@@ -1,0 +1,23 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="">
+    <div class="container"><a class="navbar-brand" href="{% url 'index' %}">
+        <i class="fa d-inline fa-lg fa-circle-o"></i>
+        <b> BRAND</b>
+    </a>
+        <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse"
+                data-target="#navbar11">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar11">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"><a class="nav-link" id='nav_home' href="{% url 'index' %}">主页</a></li>
+                <li class="nav-item"><a class="nav-link" id='nav_query' href="{% url 'gallery' %}">查询<br></a></li>
+                <li class="nav-item"><a class="nav-link" id='nav_tongji' href="{% url 'chart' %}">统计<br></a></li>
+            </ul>
+            <ul class="navbar-nav pull-right">
+                <li class="nav-item" id="about"><a class="nav-link" href="#">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">FAQ</a></li>
+            </ul>
+            <a class="btn navbar-btn ml-md-2 btn-secondary pull-right" id="contact_us">Contact us</a>
+        </div>
+    </div>
+</nav>

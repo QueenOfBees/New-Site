@@ -1,0 +1,67 @@
+<!-- footer -->
+<div class="text-white bg-dark" id="where">
+    <div class="container">
+        <div class="row">
+            <div class="p-5 col-md-6">
+                <h3><b>We</b></h3>
+                <p class="">
+                    <a href="#" target="_blank">Jiangnan University<br>LiHuDaDao1800</a>
+                </p>
+                <p class=""><a href="#" target="_blank">1030416620@vip.jiangnan.edu.cn</a></p>
+                <p class="mb-3">
+                    <a href="#">+86 15006185257&nbsp;</a>
+                </p>
+                <a href="#" target="_blank"><i class="fa d-inline fa-lg mr-3 text-white fa-linkedin"></i></a>
+                <a href="#" target="_blank"><i class="fa fa-facebook d-inline fa-lg mr-3 text-white"></i></a>
+            </div>
+            <div class="p-5 col-md-6">
+                <h3>Get in touch</h3>
+                <form >
+                    <div class="form-group">
+                        <input type="email" class="form-control form-control-sm" placeholder="Email" required="required"
+                               name="email" id="email"></div>
+                    <div class="form-group">
+                        <input type="text" class="form-control form-control-sm" id="inlineFormInput"
+                               placeholder="Subject" required="required" name="subject"></div>
+                    <div class="form-group"><textarea class="form-control p-1 form-control-sm" id="exampleTextarea"
+                                                      rows="3" placeholder="Your message" name="message"></textarea>
+                    </div>
+                    <button type='button' class="btn  btn-sm "
+                            style="color:whitesmoke;background:#1e4ea8;opacity:0.8;"
+                            id="submit">提交
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 mt-3">
+                <p class="text-center text-muted">© Copyright 2018 Liu - All rights reserved. </p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    function handleInput() {
+        $(document).ready(function () {
+            $("#submit").click(function () {
+                var email_sender = $("#email").val();
+                var subject = $("#inlineFormInput").val();
+                var message = $("#exampleTextarea").val();
+                var result_flag = false;
+                $.get("{% url "sendEmail" %}",
+                    {'email': email_sender, 'subject': subject, 'message': message},
+                    function (ret) {
+                        result_flag = ret.res;
+                        console.log(ret.res);
+                        if (ret.res === true)
+                            alert('We have received your email!Thanks!');
+                        else
+                            alert('Please send again!');
+                    },
+                );
+            })
+        });
+    }
+</script>

@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}
+    主页
+{% endblock title %}
+
+{% block css %}
+    <style>
+        body {
+            background: lightgoldenrodyellow;
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 4em;
+            color: #333;
+            box-sizing: border-box;
+
+        }
+
+        .title h3 {
+            text-align: center;
+            color: #001757;
+            font-size: 3.3em;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+        }
+
+        .title span {
+            height: 1px;
+            width: 20%;
+            background: #34bf49;
+            display: inline-block;
+        }
+
+    </style>
+    <link rel="stylesheet" href="{% static "css/bootstrap.css" %}">
+{% endblock css %}
+
+
+{% block content %}
+
+    <div class="py-5">
+        <div class="container text-black-50">
+            <div class="row">
+                <div class="px-5 col-md-8 text-center mx-auto">
+                    <h3 class="text-primary display-4"><b>快速查找空闲教室</b></h3>
+                    <h2 class="my-3">基于深度学习的实时教室人数监测</h2>
+                    <p class="mb-3">
+                        还在为找到一个空闲的自习教室而跑断双腿吗，或者只是为了知道某个教室的人数统计情况？点击下方查询按钮即可帮您找到心仪的教室
+                    </p> <a href="{% url 'gallery' %}" class="btn btn-primary">Go &gt;&gt;</a>
+                    <p class="mt-2">
+                        <small>测试版本</small>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container text-light" style="margin-top:-10px;">
+        <div class="row align-top">
+            <div class="col-6 my-auto" style="box-shadow: 2px 2px 1px">
+                {% include "carousel.html" %}
+            </div>
+            <div class="col-6">
+                <div class="title mt-0">
+                    <h3>Top 10 Rate</h3>
+                    <span id="about_span"></span>
+                </div>
+                <ul class="list list-group text-center">
+                    <li><a href="#" class="list-group-item">1A101<span class="badge">1</span></a></li>
+                    <li><a href="#" class="list-group-item">1A213<span class="badge">2</span></a></li>
+                    <li><a href="#" class="list-group-item">1A405<span class="badge">3</span></a></li>
+                    <li><a href="#" class="list-group-item">1B208<span class="badge">4</span></a></li>
+                    <li><a href="#" class="list-group-item">1B210<span class="badge">5</span></a></li>
+                    <li><a href="#" class="list-group-item">1C210<span class="badge">6</span></a></li>
+                    <li><a href="#" class="list-group-item">1B210<span class="badge">7</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- About Us -->
+    <div class="title">
+        <h3>About Us</h3>
+        <span id="about_span"></span>
+    </div>
+    <div class="py-5 text-center text-secondary">
+        <div class="container">
+            <div class="row">
+                <div class="mx-auto col-md-12">
+                    <h1 class="mb-3">Our team</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 p-4"><img class="img-fluid d-block mb-3 mx-auto rounded-circle"
+                                                        src="{% static 'images/faces/blue.jpg' %}"
+                                                        alt="Card image cap" width="200">
+                    <h4><b>刘蒙蒙</b></h4>
+                    <p class="mb-0">CEO and founder</p>
+                </div>
+                <div class="col-lg-4 col-md-6 p-4"><img class="img-fluid d-block mb-3 mx-auto rounded-circle"
+                                                        src="{% static 'images/faces/yellow.jpg' %}"
+                                                        alt="Card image cap" width="200">
+                    <h4><b>曾涛</b></h4>
+                    <p class="mb-0">Co-founder</p>
+                </div>
+                <div class="col-lg-4 p-4"><img class="img-fluid d-block mb-3 mx-auto rounded-circle"
+                                               src="{% static 'images/faces/white.jpg' %}"
+                                               width="200">
+                    <h4><b>王开运</b></h4>
+                    <p class="mb-0">Visitor</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock content %}
+{% block js %}
+    <script src="{% static "js/utility.js" %}"></script>
+{% endblock js %}
